@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>
+        {% block title %}
+        Home
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <!--start of header-->
+      <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+            <div class="n">
+            <a class="mr-5 hover:text-gray-900" href="{% url 'home' %}">𝙃𝙤𝙢𝙚</a>
+            <a class="mr-5 hover:text-gray-900" href="{% url 'post' %}">𝙋𝙤𝙨𝙩𝙨</a>
+            <a class="mr-5 hover:text-gray-900" href="{%  url 'team' %}">𝘼𝙗𝙤𝙪𝙩 𝙐𝙨</a>
+          </div>
+          </nav>
+          <div class="logo">
+          <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+            <span>𝙓𝙞𝙖𝙤𝙢𝙞</span>
+          </a>
+        </div>
+          <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+            <img href="{% static 'image/mi.jpg' %}">
+          </div>
+        </div>
+      </header>
+      <!--end of header-->
+      <!--start of content-->
+      {% block content %}
+      <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{% static 'image/mi.jpg' %}">
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <div class="na">
+                <div class="h">
+              <h2 class="text-sm title-font text-gray-500 tracking-widest">𝙓𝙞𝙖𝙤𝙢𝙞</h2>
+              <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">𝙓𝙞𝙖𝙤𝙢𝙞</h1>
+              <p class="leading-relaxed">𝙃𝙚𝙧𝙚 𝙬𝙚 𝙬𝙞𝙡𝙡 𝙩𝙖𝙡𝙠 𝙖𝙗𝙤𝙪𝙩 𝙓𝙞𝙖𝙤𝙢𝙞 𝙖𝙣𝙙 𝙝𝙞𝙨 𝙥𝙧𝙤𝙙𝙪𝙘𝙩𝙨.𝘼𝙨 𝙧𝙚𝙙𝙢𝙞 𝙨𝙢𝙖𝙧𝙩𝙥𝙝𝙤𝙣𝙚𝙨, 𝙥𝙤𝙘𝙤 𝙥𝙝𝙤𝙣𝙚𝙨, 𝙈𝙞 𝙥𝙝𝙤𝙣𝙚𝙨, 𝙧𝙚𝙙𝙢𝙞𝙗𝙤𝙤𝙠 𝙖𝙣𝙙 𝙤𝙩𝙝𝙚𝙧.</p>
+            </div>
+                <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endblock %}
+      <!--end of content-->
+      <!--start of footer-->
+      <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <i class="fa-brands fa-python" style="color: #18b4c9;"></i>
+            <span class="ml-3 text-xl"></span>
+          </a>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a href="https://t.me/Sultik2009" class="text-gray-500">
+                <i class="fa-brands fa-telegram" style="color: #000000;"></i>
+            </a>
+            <a class="ml-3 text-gray-500">
+                <i class="fa-brands fa-instagram" style="color: #000000;"></i>
+            </a>
+            <a class="ml-3 text-gray-500">
+                <i class="fa-brands fa-facebook" style="color: #000000;"></i>
+            </a>
+            <a class="ml-3 text-gray-500">
+                <i class="fa-brands fa-twitter" style="color: #000000;"></i>
+            </a>
+          </span>
+        </div>
+      </footer>
+      <!--end of footer-->
+      
+</body>
+</html>
