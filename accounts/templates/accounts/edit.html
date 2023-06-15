@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% block title %}Костомизация аккаунта{% endblock %}
+
+{% block content %}
+    <h1>Костомизируйте свой аккаунта</h1>
+    <form method="post" enctype="multipart/form-data">
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Save changes"></p>
+    </form>
+{% endblock %}

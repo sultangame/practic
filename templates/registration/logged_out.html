@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+
+{% block title %}
+Выйти
+{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style media="screen">
+        form h1{
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+            color:black;
+        }    </style>
+    </head>
+
+    <h1>Выйти из аккаунт</h1>
+    <p>
+        Вы успешно вышли из аккаунта.
+        Вы можите <a href="{% url 'login' %}">войте</a> снова
+    </p>
+{% endblock  %}

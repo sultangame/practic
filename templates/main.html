@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+    <title>
+        {% block title %}
+        Home
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <!--start of header-->
+    <header class="text-gray-400 bg-gray-900 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+      <span class="ml-3 text-xl">Redmi</span>
+    </a>
+    <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+      <a class="mr-5 hover:text-white" href="{% url 'home' %}">Главная страница</a>
+      <a class="mr-5 hover:text-white" href="{% url 'post' %}">Посты</a>
+      <a class="mr-5 hover:text-white" href="{% url 'team' %}">Об нашей команде</a>
+    </nav>
+    {% if request.user.is_authenticated %}
+    <a class="mr-5 hover:text-white" href="{% url 'edit' %}">Костомизация аккаунта</a>
+    {% endif %}
+    <span class="user">
+      {% if request.user.is_authenticated %}
+      Вы вошли как  {{ request.user.first_name| default:request.user.username }}
+          <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+        Вы вошли как  гость.
+        <a href="{% url 'login' %}">Войти</a>
+      {% endif %}
+    </span>
+  </div>
+</header>
+      <!--end of header-->
+      <!--start of content-->
+      {% block content %}
+      <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{% static 'image/mi.jpg' %}">
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <div class="na">
+                <div class="h">
+              <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">Redmi</h1>
+              <p class="leading-relaxed">Здесь мы поговорим об известной компании Redmi.</p>
+            </div>
+                <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endblock %}
+      <!--end of content-->
+      <!--start of footer-->
+      <footer class="text-gray-400 bg-gray-900 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+            <span class="ml-3 text-xl">Redmi</span>
+          </a>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-400"><i class="fa-brands fa-telegram" style="color: #0000ff;"></i>
+            </a>
+            <a class="ml-3 text-gray-400"><i class="fa-brands fa-telegram" style="color: #0000ff;"></i>
+            </a>
+            <a class="ml-3 text-gray-400"><i class="fa-brands fa-instagram" style="color: #ff0000;"></i>
+            </a>
+            <a class="ml-3 text-gray-400"><i class="fa-brands fa-instagram" style="color: #ff0000;"></i>
+            </a>
+          </span>
+        </div>
+      </footer>
+      <!--end of footer-->
+      
+</body>
+</html>
